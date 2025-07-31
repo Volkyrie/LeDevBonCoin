@@ -5,8 +5,8 @@ class ControllerPage {
         //     header('Location: /mangatheque/login');
         //     exit;
         // }
-        // $modelUser = new ModelUser();
-        // $users = $modelUser->getUsers();
+        $modelPage = new ModelPage();
+        $ads = $modelPage->getAds();
         require './view/page/homepage.php';
     }
 }
