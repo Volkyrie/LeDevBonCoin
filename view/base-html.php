@@ -29,13 +29,21 @@
         </div>
     </header>
     <main class="display-flex align-center flex-column">
-        <nav>
-
-        </nav>
         <?php if(isset($_SESSION['error'])) : ?>
             <div class="error"><?= $_SESSION['error']?></div>
             <?php unset($_SESSION['error'])?>
         <?php endif; ?>
+        <nav class="width100">
+            <ul class="display-flex gap60 width100 justify-center">
+                <?php
+                    foreach($categories as $category) :
+                ?>
+                    <li><a href="#" class="color-grey"><?= $category['name'] ?></a></li>
+                <?php
+                    endforeach;
+                ?>
+            </ul>
+        </nav>
         
         <?php if(isset($_SESSION['success'])) : ?>
             <div class="success"><?= $_SESSION['success']?></div>

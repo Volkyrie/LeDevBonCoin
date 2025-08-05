@@ -10,11 +10,11 @@ ob_start();
 foreach($ads as $ad) :
 ?>
 
-<article class="card">
-    <h2><?= $ad->getTitle() ?></h2>
-    <p>Catégorie : <?= $ad->getCategory() ?></p>
-    <p><?= $ad->getDescription() ?></p>
-    <p>Prix : <?= $ad->getPrice() ?></p>
+<article class="card gap30 display-flex flex-column align-center">
+    <h2 class="width100"><?= $ad->getTitle() ?></h2>
+    <p class="width100">Catégorie : <?= $ad->getCategory() ?></p>
+    <p class="width100"><?= $ad->getDescription() ?></p>
+    <p class="width100">Prix : <?= $ad->getPrice() ?></p>
     <button class="jersey-10-regular color-white">Contacter le vendeur</button>
 </article>
 

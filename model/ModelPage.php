@@ -17,4 +17,10 @@ class ModelPage extends Model {
 
         return $arrayAds;
     }
+
+    public function getCategories() {
+        $sql = "SELECT name FROM categories";
+        $query = $this->getDb()->query($sql);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

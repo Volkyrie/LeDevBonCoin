@@ -137,7 +137,7 @@ header, footer {
 
 /* Main */
 main {
-    padding: 60px 0;
+    padding-bottom 60px;
     min-height: 700px;
 }
 
@@ -163,4 +163,23 @@ button {
     border: none;
     border-radius: 5px;
     padding: 10px;
+}
+
+.card {
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    padding: 40px;
+}
+
+ul {
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    border-bottom: 1px solid var(--grey);
+    padding: 13px;
+    margin-bottom: 60px;
+}
+
+li a:hover {
+    color: var(--green);
 }
