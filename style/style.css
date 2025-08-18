@@ -52,12 +52,24 @@ a, a:visited, a:hover {
     display: flex;
 }
 
+.flex-row {
+    flex-direction: row;
+}
+
 .flex-column {
     flex-direction: column;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 .justify-center {
     justify-content: center;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
 }
 
 .align-center {
@@ -137,8 +149,20 @@ header, footer {
 
 /* Main */
 main {
-    padding-bottom 60px;
+    padding-bottom: 60px;
     min-height: 700px;
+}
+
+.error {
+    background-color: tomato;
+    padding: 2px;
+    text-align: center
+}
+
+.success {
+    background-color: aquamarine;
+    padding: 2px;
+    text-align: center
 }
 
 form {
@@ -169,6 +193,8 @@ button {
     border: 1px solid var(--grey);
     border-radius: 5px;
     padding: 40px;
+    width: 25%;
+    margin-bottom: 15px;
 }
 
 ul {
@@ -182,4 +208,19 @@ ul {
 
 li a:hover {
     color: var(--green);
+}
+
+a.register-login {
+    margin-top: 15px;
+    color: var(--grey);
+}
+
+a.register-login:hover {
+    color: var(--grey);
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+    height: 145px;
 }

@@ -20,7 +20,7 @@ ob_start();
     </div>
     <button type="submit" class="jersey-10-regular color-white">S'enregistrer</button>
 </form>
-
+<a class="arial color-grey register-login" href="/ledevboncoin/login">Se connecter</a>
 <?php
 $content = ob_get_contents();
 ob_end_clean();

@@ -1,6 +1,8 @@
 <?php
 class ControllerAuth {
     public function register() {
+        $modelPage = new ModelPage();
+        $categories = $modelPage->getCategories();
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['password'])) {
                 $_SESSION['error'] = "Tous les champs doivent être remplis.";
@@ -14,7 +16,7 @@ class ControllerAuth {
 
             $modelUser = new ModelUser();
             if($modelUser->searchUser($email) == NULL) {
-                $successUser = $modelUser->createUser($_POST['name'], $_POST['email'], $_POST['password']);
+                $successUser = $modelUser->createUser($pseudo, $email, $password);
             } else {
                 $_SESSION['error'] = "Cet email est déjà enregistré.";
                 header('Location: /ledevboncoin/register');
@@ -35,6 +37,8 @@ class ControllerAuth {
     }
 
     public function login() {
+        $modelPage = new ModelPage();
+        $categories = $modelPage->getCategories();
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             if(empty($_POST['email']) || empty($_POST['password'])) {
                 $_SESSION['error'] = "Tous les champs doivent être remplis.";

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 31 juil. 2025 à 13:47
--- Version du serveur : 9.1.0
--- Version de PHP : 8.3.14
+-- Host: 127.0.0.1:3306
+-- Generation Time: Aug 18, 2025 at 11:56 AM
+-- Server version: 9.1.0
+-- PHP Version: 8.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,76 +18,85 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `dvcoin`
+-- Database: `dvcoin`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ads`
+-- Table structure for table `ads`
 --
 
 DROP TABLE IF EXISTS `ads`;
 CREATE TABLE IF NOT EXISTS `ads` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `category` int NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `price` int NOT NULL,
   `author` int NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `CATEGORY` (`category`),
-  UNIQUE KEY `AUTHOR` (`author`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  KEY `AUTHOR` (`author`),
+  KEY `CATEGORY` (`category`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `ads`
+-- Dumping data for table `ads`
 --
 
 INSERT INTO `ads` (`id`, `title`, `category`, `description`, `price`, `author`) VALUES
-(1, 'Le JS pour les nuls', 1, 'Livre pour apprendre le JS pour les débutants. Très peu servi, très facile à comprendre.', 15, 1);
+(1, 'Le JS pour les nuls', 1, 'Livre pour apprendre le JS pour les débutants. Très peu servi, très facile à comprendre.', 15, 1),
+(5, 'Tester son code', 5, 'Ceci est un test pour mon application.', 10, 1),
+(7, 'Tester sa main page', 1, 'Test.', 45235, 1),
+(8, 'Carotes', 6, 'Délicieuses carottes!', 2, 1),
+(9, 'Test des catégories', 7, 'Petits test gratuit d\'une création de catégorie via le formulaire de création de post', 0, 1),
+(11, 'Une petite dernière pour la route', 9, 'Juste pour le plaisir.', 1554, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Table structure for table `categories`
 --
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
 (1, 'Informatique'),
 (2, 'Maison'),
 (3, 'Mode'),
-(4, 'Véhicule');
+(4, 'Véhicule'),
+(5, 'Livre'),
+(6, 'Nourriture'),
+(7, 'Programmation'),
+(9, 'Voyage');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
@@ -95,15 +104,15 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
 (2, 'volkyrie', 'test@test.fr', '$2y$10$sD3o6ix61hJBTxUdWkJ7P.AyoAvUZFiUKMuIEFld8rF9pWYpcMHtK', '2025-07-29 15:53:48');
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `ads`
+-- Constraints for table `ads`
 --
 ALTER TABLE `ads`
-  ADD CONSTRAINT `ads_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `ads_ibfk_2` FOREIGN KEY (`category`) REFERENCES `categories` (`id`);
+  ADD CONSTRAINT `ads_ibfk_3` FOREIGN KEY (`author`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `ads_ibfk_4` FOREIGN KEY (`category`) REFERENCES `categories` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

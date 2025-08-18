@@ -24,14 +24,26 @@
             <a href="/ledevboncoin/postad" class="jersey-10-regular">Poster une annonce</a>
         </div>
         <div id="connection" class="color-white font-20 gap15 display-flex">
-            <a href="/ledevboncoin/login" class="jersey-10-regular"><?= $username ?? 'Connexion/Inscription' ?></a>
+            <?php if(isset($_SESSION['id'])) { ?>
+                <a href="/ledevboncoin/login" class="jersey-10-regular"><?= $username ?? 'Connexion/Inscription' ?></a>
+            <?php    
+            } else { ?>
+                    <a href="/ledevboncoin/login" class="jersey-10-regular"><?= $username ?? 'Connexion/Inscription' ?></a>
+            <?php    
+                }
+            ?>
+            
             <i class="fa-solid fa-user"></i>
         </div>
     </header>
     <main class="display-flex align-center flex-column">
         <?php if(isset($_SESSION['error'])) : ?>
-            <div class="error"><?= $_SESSION['error']?></div>
+            <div class="error width100"><?= $_SESSION['error']?></div>
             <?php unset($_SESSION['error'])?>
+        <?php endif; ?>
+        <?php if(isset($_SESSION['success'])) : ?>
+            <div class="success width100"><?= $_SESSION['success']?></div>
+            <?php unset($_SESSION['success'])?>
         <?php endif; ?>
         <nav class="width100">
             <ul class="display-flex gap60 width100 justify-center">
@@ -44,11 +56,6 @@
                 ?>
             </ul>
         </nav>
-        
-        <?php if(isset($_SESSION['success'])) : ?>
-            <div class="success"><?= $_SESSION['success']?></div>
-            <?php unset($_SESSION['success'])?>
-        <?php endif; ?>
         
         <?= $content ?? 'Pas de contenu' ?>
     </main>
