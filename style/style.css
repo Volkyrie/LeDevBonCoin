@@ -1,6 +1,7 @@
 :root {
     --green: #00C8B3;
     --grey: #2C2C2C;
+    --red: rgb(240, 36, 36);
 }
 
 html, body, div, span, applet, object, iframe,
@@ -102,6 +103,14 @@ a, a:visited, a:hover {
 
 .color-grey {
     color: var(--grey);
+}
+
+.color-red {
+    color: var(--red);
+}
+
+a.color-red {
+    color: var(--red);
 }
 
 /* HEADER */
@@ -223,4 +232,36 @@ a.register-login:hover {
 textarea {
     resize: none;
     height: 145px;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: white;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 40px;
+    gap: 10px;
+
+}
+
+.dropdown-menu a:hover {
+    color: var(--green);
+}
+
+.showMenu {
+    display: flex;
+    transition: all 2s;
+}
+
+.hideMenu {
+    display: none;
+    transition: all 2s;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  justify-content: center;
 }

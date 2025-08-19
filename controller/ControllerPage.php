@@ -36,14 +36,9 @@ class ControllerPage {
     }
 
     public function adPage(int $id) {
-        if(isset($_SESSION['id'])) {
-            $modelPage = new ModelPage();
-            $ad = $modelPage->getOneAdById($id);
-            $categories = $modelPage->getCategories();
-            require './view/page/adpage.php';
-        } else {
-            header('Location: /ledevboncoin/login');
-            exit;
-        }
+        $modelPage = new ModelPage();
+        $ad = $modelPage->getOneAdById($id);
+        $categories = $modelPage->getCategories();
+        require './view/page/adpage.php';
     }
 }

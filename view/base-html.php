@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="/ledevboncoin/style/style.css">
     <script src="https://kit.fontawesome.com/4f3e1a72fd.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
 
     <title><?= $title ?></title>
 </head>
@@ -25,15 +25,20 @@
         </div>
         <div id="connection" class="color-white font-20 gap15 display-flex">
             <?php if(isset($_SESSION['id'])) { ?>
-                <a href="/ledevboncoin/login" class="jersey-10-regular"><?= $username ?? 'Connexion/Inscription' ?></a>
+                <div class="dropdown">
+                    <button id="dropdown-btn" class="jersey-10-regular color-white"> Bonjour, <?= $_SESSION['name'] ?> <i class="fa-solid fa-user"></i></button>
+                    <div id="dropdown-menu" class="dropdown-menu flex-column jersey-10-regular">
+                        <a href="#" class="color-grey">Mes annonces</a>
+                        <a href="/ledevboncoin/logout" class="color-red"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion</a>
+                    </div>
+                </div>
+                
             <?php    
             } else { ?>
-                    <a href="/ledevboncoin/login" class="jersey-10-regular"><?= $username ?? 'Connexion/Inscription' ?></a>
+                    <a href="/ledevboncoin/login" class="jersey-10-regular"><?= 'Connexion/Inscription' ?></a>
             <?php    
                 }
             ?>
-            
-            <i class="fa-solid fa-user"></i>
         </div>
     </header>
     <main class="display-flex align-center flex-column">
@@ -67,5 +72,6 @@
         </div>
         <p class="color-white">© 2025. All rights reserved.</p>
     </footer>
+    <script src="/ledevboncoin/js/main.js"></script>
 </body>
 </html>
