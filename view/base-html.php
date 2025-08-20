@@ -28,7 +28,7 @@
                 <div class="dropdown">
                     <button id="dropdown-btn" class="jersey-10-regular color-white"> Bonjour, <?= $_SESSION['name'] ?> <i class="fa-solid fa-user"></i></button>
                     <div id="dropdown-menu" class="dropdown-menu flex-column jersey-10-regular">
-                        <a href="#" class="color-grey">Mes annonces</a>
+                        <a href="/ledevboncoin/userad" class="color-grey">Mes annonces</a>
                         <a href="/ledevboncoin/logout" class="color-red"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion</a>
                     </div>
                 </div>

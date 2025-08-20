@@ -34,6 +34,27 @@ class ModelPage extends Model {
         return $ad ? new Ad($ad) : NULL;
     }
 
+    public function getAdsByAuthor(string $author) {
+        $sql = "SELECT ads.id, title, GROUP_CONCAT(categories.name) AS category, description, price, GROUP_CONCAT(users.name) AS author FROM ads
+                INNER JOIN categories ON categories.id = ads.category
+                INNER JOIN users ON users.id = ads.author
+                WHERE ads.author=1
+				GROUP BY ads.id";
+        $query = $this->getDb()->query($sql);
+        $query->bindParam(':author', $author, PDO::PARAM_INT);
+        
+        $arrayAds = [];
+        
+        while($ad = $query->fetch(PDO::FETCH_ASSOC)) {
+            $arrayAds[] = new Ad($ad);
+        }
+
+        // var_dump($arrayAds);
+        // exit;
+
+        return $arrayAds;
+    }
+
     public function getCategories() {
         $sql = "SELECT name FROM categories";
         $query = $this->getDb()->query($sql);
@@ -68,5 +89,31 @@ class ModelPage extends Model {
             $query->execute();
             return $this->searchCategory($name);
         }
+    }
+
+    public function editOneAdById($id, $title, $category, $price, $description, $author) {
+        $categoryId = $this->searchCategory($category);
+
+        $sql="UPDATE ads SET title = :title,
+                            category = :categoryId, 
+                            description = :description,
+                            price = :price,
+                            author = :author
+                        WHERE ads.id = :id";
+        $query = $this->getDb()->prepare($sql);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->bindParam(':title', $title, PDO::PARAM_STR);
+        $query->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
+        $query->bindParam(':description', $description, PDO::PARAM_STR);
+        $query->bindParam(':price', $price, PDO::PARAM_INT);
+        $query->bindParam(':author', $author, PDO::PARAM_INT);
+        return $query->execute();
+    }
+
+    public function deleteOneAdById(int $id) {
+        $sql = "DELETE FROM ads WHERE id= :id";
+        $query = $this->getDb()->prepare($sql);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        return $query->execute();
     }
 }

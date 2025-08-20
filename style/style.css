@@ -101,15 +101,15 @@ a, a:visited, a:hover {
     color: white;
 }
 
-.color-grey {
+.color-green {
+    color: var(--green)
+}
+
+a.color-grey, .color-grey {
     color: var(--grey);
 }
 
-.color-red {
-    color: var(--red);
-}
-
-a.color-red {
+a.color-red, .color-red {
     color: var(--red);
 }
 
@@ -264,4 +264,20 @@ textarea {
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+.edit-btn {
+    background-color: var(--green);
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.delete-btn {
+    background-color: var(--red);
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
 }

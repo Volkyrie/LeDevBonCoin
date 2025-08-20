@@ -11,6 +11,9 @@ $router->setBasePath('/ledevboncoin');
 $router->map( 'GET', '/', 'ControllerPage#homePage', 'homepage');
 $router->map( 'GET|POST', '/postad', 'ControllerPage#postPage', 'postpage');
 $router->map( 'GET', '/ad/[i:id]', 'ControllerPage#adPage', 'adpage');
+$router->map( 'GET', '/userad', 'ControllerPage#userAdPage', 'useradpage');
+$router->map( 'GET|POST', '/editad/[i:id]', 'ControllerPage#editAdPage', 'editadpage');
+$router->map( 'GET', '/deletead/[i:id]', 'ControllerPage#deleteAdPage', 'deleteadpage');
 
 //USER ROUTES
 $router->map( 'GET|POST', '/register', 'ControllerAuth#register', 'register');
