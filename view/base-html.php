@@ -52,10 +52,11 @@
         <?php endif; ?>
         <nav class="width100">
             <ul class="display-flex gap60 width100 justify-center">
+                <li><a href="#" class="category color-grey" id="Tout">Tout</a></li>
                 <?php
                     foreach($categories as $category) :
                 ?>
-                    <li><a href="#" class="color-grey"><?= $category['name'] ?></a></li>
+                    <li><a href="#" id="<?= $category['name'] ?>" class="category color-grey"><?= $category['name'] ?></a></li>
                 <?php
                     endforeach;
                 ?>

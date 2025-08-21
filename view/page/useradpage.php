@@ -10,7 +10,7 @@ ob_start();
 foreach($ads as $ad) :
 ?>
     <div class="card">
-        <article class="gap30 display-flex flex-column align-center color-grey">
+        <article class="gap30 display-flex flex-column align-center color-grey" data-category="<?= $ad->getCategory() ?>">
             <h2 class="width100"><?= $ad->getTitle() ?></h2>
             <p class="width100">Catégorie : <?= $ad->getCategory() ?></p>
             <p class="width100"><?= $ad->getDescription() ?></p>

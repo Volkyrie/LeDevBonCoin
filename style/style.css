@@ -53,6 +53,10 @@ a, a:visited, a:hover {
     display: flex;
 }
 
+.hidden {
+    display: none;
+}
+
 .flex-row {
     flex-direction: row;
 }
