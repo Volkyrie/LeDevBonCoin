@@ -101,7 +101,6 @@ if (smallScreen <= 600) {
         e.preventDefault();
         searchBar.focus();
         searchBar.addEventListener('keydown', function(e) {
-            console.log("on est là");
             if(e.key === "Enter") {
                 let searchValue = searchBar.value;
                 sessionStorage.setItem("searchValue", searchValue);

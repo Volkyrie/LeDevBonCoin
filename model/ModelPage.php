@@ -34,14 +34,15 @@ class ModelPage extends Model {
         return $ad ? new Ad($ad) : NULL;
     }
 
-    public function getAdsByAuthor(string $author) {
+    public function getAdsByAuthor(int $author) {
         $sql = "SELECT ads.id, title, GROUP_CONCAT(categories.name) AS category, description, price, GROUP_CONCAT(users.name) AS author FROM ads
                 INNER JOIN categories ON categories.id = ads.category
                 INNER JOIN users ON users.id = ads.author
-                WHERE ads.author=1
-				GROUP BY ads.id";
-        $query = $this->getDb()->query($sql);
+                WHERE ads.author=:author
+                GROUP BY ads.id";
+        $query = $this->getDb()->prepare($sql);
         $query->bindParam(':author', $author, PDO::PARAM_INT);
+        $query->execute();
         
         $arrayAds = [];
         
