@@ -59,14 +59,14 @@ class ControllerPage {
             $modelPage = new ModelPage();
             $categories = $modelPage->getCategories();
             if($_SERVER['REQUEST_METHOD'] === 'GET') {
-                $ad = $modelPage->editOneAdById($id);
+                $ad = $modelPage->getOneAdById($id);
                 require './view/page/editadpage.php';
             } else {
                 $title = trim($_POST['title']);
                 $category = ucfirst(strtolower(trim($_POST['category'])));
                 $price = trim($_POST['price']);
                 $description = trim($_POST['description']);
-                $success = $modelPage->editAd($id, $title, $category, $price, $description, $_SESSION['id']);
+                $success = $modelPage->editOneAdById($id, $title, $category, $price, $description, $_SESSION['id']);
                 if($success == true) {
                     $_SESSION['success'] = "Votre annonce a bien été modifiée";
                 } else {

@@ -15,18 +15,26 @@ foreach($ads as $ad) :
             <p class="width100">Catégorie : <?= $ad->getCategory() ?></p>
             <p class="width100"><?= $ad->getDescription() ?></p>
             <p class="width100">Prix : <?= $ad->getPrice() ?></p>
-            <div class="display-flex gap15">
+            <div class="display-flex gap15 ad-action">
                 <a href="/ledevboncoin/editad/<?= $ad->getId() ?>" class="jersey-10-regular edit-btn">Editer</a>
-                <a href="/ledevboncoin/deletead/<?= $ad->getId() ?>" class="jersey-10-regular delete-btn">Supprimer</a>
+                <button class="jersey-10-regular delete-btn color-white delete-ad" value="<?= $ad->getId() ?>">Supprimer</button>
             </div>
-            
         </article>
 </div>
 <?php
 endforeach;
 ?>
+<div id="popup" class="confirmation hidden flex-column gap15 align-center">
+    <p>Voulez-vous vraiment supprimer votre annonce ?</p>
+    <div class="confirm-action gap15 display-flex">
+        <button id="delete" class="jersey-10-regular edit-btn color-white">Oui</button>
+        <button id="cancel" class="jersey-10-regular delete-btn color-white">Non</button>
+    </div>
+</div>
 </div>
 <?php
 $content = ob_get_contents();
 ob_end_clean();
 require_once './view/base-html.php';
+
+/* "/ledevboncoin/deletead/<?= $ad->getId() ?>" */

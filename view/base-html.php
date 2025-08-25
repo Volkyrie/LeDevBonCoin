@@ -16,11 +16,11 @@
         <a href="/ledevboncoin" class="jersey-10-regular logo">LDBC</a>
         <div id="search-bar" class="display-flex align-center">
             <input type="text" id="search" class="jersey-10-regular search-bar color-grey" placeholder="Entrez votre recherche">
-            <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="search-btn" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         
-        <div id="write-ad" class="color-white font-20 gap15 display-flex">
-            <i class="fa-solid fa-pen-to-square"></i>
+        <div id="write-ad" class="color-white font-20 gap15 display-flex align-center">
+            <a href="/ledevboncoin/postad" class="jersey-10-regular display-flex"><i class="fa-solid fa-pen-to-square"></i></a>
             <a href="/ledevboncoin/postad" class="jersey-10-regular">Poster une annonce</a>
         </div>
         <div id="connection" class="color-white font-20 gap15 display-flex">
